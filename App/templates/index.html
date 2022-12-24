@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Text Sentiment Sentiment Analysis System</title>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static',filename='styles/Main.css')}}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{url_for('static',filename='styles/Home.css')}}"
+		/>
+		<script src="{{url_for('static',filename='scripts/index.js')}}"></script>
+		<script src="{{url_for('static',filename='scripts/main.js')}}"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Text Sentiment Sentiment Analysis System</h1>
+		</header>
+		<aside>
+			<button class="optionButton" onclick="clearInput(event)">
+				Clear Input
+			</button>
+			<button class="optionButton" onclick="">
+				<label for="file"> Browse File </label>
+			</button>
+			<input
+				style="display: none"
+				type="file"
+				name="file"
+				id="file"
+				onchange="SubmitFile(event)"
+			/>
+			<button class="optionButton" onclick="filterTheScript(event)">
+				Filteration
+			</button>
+			<button class="optionButton" onclick="validateTheScript(event)">
+				Script Validation
+			</button>
+			<button class="optionButton" onclick="getTokens(event)">
+				Tokenization
+			</button>
+			<button class="optionButton" onclick="getStems(event)">
+				Lemmetization
+			</button>
+			<button class="optionButton" onclick="getPOSTags(event)">
+				P-O-S Tagging
+			</button>
+		</aside>
+		<main>
+			<div id="initialDetails">
+				<div class="initialDetails">
+					<img
+						src="https://images.unsplash.com/photo-1620077399971-431e7ea0cf0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80"
+						alt=""
+					/>
+					<h1>Welcome to Text based Sentiment Analysis System</h1>
+					<p>
+						We will predict Sentiment behind the text by considering
+						following 6 classes
+					</p>
+				</div>
+				<div class="classesExamples">
+					<div class="exampleClass">
+						<img
+							src="https://play-lh.googleusercontent.com/G4PFUhWRDby0PDKCzNQU8H6uCngprpDGfz_LSDpKdCXVlAj5qM-Kq6TAvlgWemtbnlA"
+							alt=""
+						/>
+						<h3>Anger</h3>
+					</div>
+					<div class="exampleClass">
+						<img
+							src="https://www.pngitem.com/pimgs/m/103-1031488_disgusted-emoji-267-decal-sarcastic-emoji-hd-png.png"
+							alt=""
+						/>
+						<h3>Disgust</h3>
+					</div>
+					<div class="exampleClass">
+						<img
+							src="https://i.guim.co.uk/img/media/a1b7129c950433c9919f5670c92ef83aa1c682d9/55_344_1971_1183/master/1971.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=f28ed28c5f7ba517e826fbcbcbe09557"
+							alt=""
+						/>
+						<h3>Joy</h3>
+					</div>
+					<div class="exampleClass">
+						<img
+							src="https://www.cambridge.org/elt/blog/wp-content/uploads/2019/07/Sad-Face-Emoji.png"
+							alt=""
+						/>
+						<h3>Sadness</h3>
+					</div>
+					<div class="exampleClass">
+						<img
+							src="https://media.istockphoto.com/id/840934838/vector/cute-surprised-emoticon-on-white-background.jpg?s=612x612&w=0&k=20&c=6Yny3NkIgML2h-dSFca33M3GRqKC4w7ALa-LkdxKjMg="
+							alt=""
+						/>
+						<h3>Surprise</h3>
+					</div>
+					<div class="exampleClass">
+						<img
+							src="https://i.pinimg.com/474x/cb/58/6e/cb586eff7d8927dcc89e475149877f1e.jpg"
+							alt=""
+						/>
+						<h3>Fear</h3>
+					</div>
+				</div>
+				<button onclick="showAnalysisDashboard()">
+					Go To Analysis Dashboard
+				</button>
+			</div>
+			<div id="inputContainer">
+				<h4>Enter Your Text:</h4>
+				<textarea
+					name="input"
+					id="input"
+					placeholder="Enter Any Text"
+				></textarea>
+			</div>
+			<button id="outputButton" onclick="getResult(event)">
+				Get Final Output
+			</button>
+			<div id="MainOutputContainer">
+				<div class="fileration">
+					<h4>Filteration</h4>
+					<div class="value"></div>
+				</div>
+				<div class="tokenization">
+					<h4>Tokenization</h4>
+					<div class="value"></div>
+				</div>
+				<div class="lemmetization">
+					<h4>Lemmetization</h4>
+					<div class="value"></div>
+				</div>
+				<div class="Vectorization">
+					<h4>Vectorization</h4>
+					<div class="value"></div>
+				</div>
+				<div class="finalOutput">
+					<h2>Predicted Sentiment is</h2>
+					<h1>Anger</h1>
+					<img
+						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRJ837oFr_R38b-ti0ApEkkOJmeDUTyAspCbFLHuxud76HwWzwKAN6FEyRBzYPiyClnqA&usqp=CAU"
+						alt=""
+					/>
+				</div>
+			</div>
+			<div id="FilterationSection">
+				<h1>Filtered Output</h1>
+				<div class="output"></div>
+			</div>
+			<div id="ValidationSection" >
+				<h1>Validation Output</h1>
+				<div class="output">
+					<img src="https://media.istockphoto.com/id/924932028/vector/grunge-green-valid-square-rubber-seal-stamp-on-white-background.jpg?s=170667a&w=0&k=20&c=X6KOlHSu-YOQIeiZKoZCgw4pqsK7ayrwJfIuVZNAbXw=" alt="">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTne1vTscvxPsxY5-YxsMDrBwmfPEPmpP7fcXnoU259U2pApYFVdCTR1aq-RpWyyAvI0bU&usqp=CAU" alt="">
+					<h1>Given Text is Valid As per the English Language</h1>
+				</div>
+			</div>
+			<div id="TokenizationSection">
+				<h1>Tokenization Output</h1>
+				<div class="output"></div>
+			</div>
+			<div id="LemmetizationSection">
+				<h1>Lemmetization Output</h1>
+				<div class="output"></div>
+			</div>
+			<div id="POSTaggingSection">
+				<h1>POSTagging Output</h1>
+				<div class="output"></div>
+			</div>
+		</main>
+		<article>
+			<ol>
+				<li>Only English Language is Allowed</li>
+				<li>Only Text file should be uploaded</li>
+				<li>Final answer will be depend on whole text</li>
+				<li>Every Sentence Will be checked independently</li>
+			</ol>
+		</article>
+	</body>
+</html>

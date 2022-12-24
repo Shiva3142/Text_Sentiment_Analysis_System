@@ -1,0 +1,236 @@
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 10px;
+	flex-wrap: wrap;
+	background-color: #192a56;
+}
+
+header h1 {
+	color: #ffffff;
+}
+
+nav {
+	width: 300px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+aside {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	/* background: darkblue; */
+	min-height: 80vh;
+	display: none;
+}
+
+aside button {
+	padding: 20px 10px;
+	margin: 5px 0;
+	background: #192a56;
+	width: 100%;
+}
+aside button:hover {
+	background: green;
+	transform: scale(1.1);
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px;
+}
+
+#inputContainer {
+	min-width: 900px;
+	display: none;
+	color: black;
+}
+#inputContainer textarea {
+	background: white;
+	width: 100%;
+	min-height: 200px;
+	border-radius: 10px;
+	padding: 15px;
+	font-weight: bold;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	text-decoration: underline;
+	border: 1px solid gray;
+}
+
+#outputButton {
+	background-color: aqua;
+	color: black;
+	padding: 10px 30px;
+	font-size: 1.2em;
+	border-radius: 5px;
+	font-weight: bold;
+	display: none;
+}
+
+#FilterationSection,
+#ValidationSection,
+#TokenizationSection,
+#LemmetizationSection,
+#POSTaggingSection {
+	width: 800px;
+	min-height: 400px;
+	background-color: #ffffff;
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: black;
+	display: none;
+}
+.output {
+	min-height: 300px;
+	border: 1px solid gray;
+	width: 90%;
+	padding: 10px;
+}
+#ValidationSection div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#ValidationSection div img{
+	max-width: 300px;
+
+}
+
+#initialDetails {
+	background: white;
+	width: 90%;
+	min-height: 80vh;
+	padding: 10px;
+	color: black;
+	margin: 20px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.initialDetails {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.initialDetails img {
+	max-width: 400px;
+}
+
+.classesExamples {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.exampleClass {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 20px;
+}
+.exampleClass img {
+	max-width: 100px;
+}
+
+#initialDetails button{
+	padding: 20px 30px;
+	background-color: coral;
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+	border-radius: 20px;
+	box-shadow: 0px 0px 15px gray;
+}
+#initialDetails button:hover{
+	background-color: aqua;
+}
+
+
+
+article {
+	position: fixed;
+	background-color: white;
+	color: black;
+	right: 0;
+	top: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	font-size: 0.8em;
+	max-width: 10%;
+	display: none;
+}
+
+#MainOutputContainer {
+	width: 1000px;
+	min-height: 40vh;
+	background-color: white;
+	color: black;
+	margin: 30px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    display: none;
+}
+
+.fileration,
+.tokenization,
+.lemmetization,
+.Vectorization {
+	border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    max-width: 500px;
+}
+
+
+.value{
+    padding: 10px;
+    margin: 5px;
+    max-width: 450px;
+}
+
+
+.finalOutput {
+	grid-column: span 2;
+	border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    margin: 20px;
+}
+
+.finalOutput h1{
+    font-size: 3em;
+}
+
+.finalOutput img{
+    width: 250px;
+}
+
+
+
+
